@@ -1,5 +1,46 @@
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
+}
+
+body{
+  margin:0;
+  padding:0;
+}
+
+.header-container{
+  width:100%;
+  display:flex;
+  flex-direction: row wrap;
+  justify-content: space-around;
+  height:80px;
+  box-shadow: 0 1px 6px 1px rgba(179, 179, 179, 0.6);
+};
+
+.header-container{
+  padding:20px;
+  margin:auto 0;
+}
+
+#darkmode-btn{
+  color:rgb(0, 16, 27);
+   margin:auto 0;
+  margin-left:900px;
+  height:40px;
+  background:none;
+  border:none;
+  font-size: 18px;
+}
+
+#moon{
+
+  padding:0 10px;
+  font-size:20px;
+}
+
+#darkmode-btn:hover{
+cursor: pointer;
+}
+
+#darkmode-btn:focus{
+  outline: none;
 }
