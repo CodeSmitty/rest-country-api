@@ -4,57 +4,28 @@
   padding:0;
 }
 
-body{
-  margin:0;
-  padding:0;
-}
-
-.country-box {
-  
- 
-  border: 1px solid black;
-  flex: 1 1 18%;
-  margin: 20px;
-}
-
-.country-data {
-  width: 100%;
-  margin: auto;
-}
-
-#data-container {
-  width: 80%;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  margin: auto;
-    margin-top: 100px;
-}
-
 .header-container {
   width: 100%;
   display: flex;
-  flex-direction: row nowrap;
+  flex-flow: row nowrap;
   justify-content: space-around;
-  height: 80px;
+  height: 6vw;
   box-shadow: 0 1px 6px 1px rgba(179, 179, 179, 0.6);
-}
-
-.flag {
-  width: 100%;
-  max-width: 100%;
-}
-
-.header-container {
-  width:100%;
   padding: 20px;
-  margin: auto 0;
+}
+
+.header-title, #darkmode-btn{
+  flex:1 1 40%;
+  
+}
+
+.header-title{
+  font-size: 2vw;
 }
 
 #darkmode-btn {
   color: rgb(0, 16, 27);
   margin: auto 0;
-  margin-left: 900px;
   height: 40px;
   background: none;
   border: none;
@@ -73,3 +44,78 @@ body{
 #darkmode-btn:focus {
   outline: none;
 }
+
+.search-and-filter-container{
+  width:80%;
+  margin:auto;
+  padding-bottom:100px;
+  display:flex;
+  justify-content: space-between;
+}
+
+#search-bar, #dropdown-container{
+  flex:0 1 auto;
+  margin-top:100px;
+  border:0px;
+  box-shadow: 0 1px 6px 1px rgba(179, 179, 179, 0.6);
+  height:30px;
+  width:30%;
+}
+
+#dropdown-container{
+  display: flex;
+  justify-content: space-between;
+  color:rgb(131, 131, 131);
+};
+select{
+ display:none;
+}
+
+#filter-label{
+  padding:5px;
+  margin:auto;
+}
+
+.country-box {
+  max-width:20%;
+  box-shadow: 1px 1px 5px 1px rgba(155, 155, 155, 0.8);
+  flex: 1 1 20%;
+  margin: 20px;
+}
+
+.country-box:hover{
+  cursor: pointer;
+}
+
+.country-data {
+  width: 100%;
+  margin: auto;
+}
+
+#data-container {
+  width: 80%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin: auto;
+   top:20%;
+}
+
+.flag {
+  width: 100%;
+  max-width: 100%;
+}
+
+.population, .region, .capital{
+  text-align: center;
+  padding:3px 0;
+}
+
+.country-title{
+  text-align: center;
+  padding:5px 0;
+}
+
+
+
+
