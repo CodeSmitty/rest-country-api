@@ -9,18 +9,28 @@ const getCountry = async (url) => {
   return response;
 };
 
-const createElement = (type, className, data) => {
+const createElement = (type, className, data, alt) => {
   var element = document.createElement(type);
 
-  element.classList = className;
-  element.innerHTML = data;
-  return element;
+  if(type === "img"){
+      element.src = data;
+      element.alt = alt;
+      element.classList = className;
+      return element;
+  }else{
+    element.classList = className;
+    element.innerHTML = data;
+    return element;
+  }
+
+  
 };
 
 const renderCountry = async (country) => {
   const fetchCountries = await getCountry(api_url);
 
   fetchCountries.forEach((count) => {
+      console.log(count)
     const countryBox = createElement("div", "country-box", "");
     const countryData = createElement("div", "country-data", "");
     const name = createElement("h1", "country-title", count.name);
@@ -31,9 +41,11 @@ const renderCountry = async (country) => {
     );
     const region = createElement("p", "region", `Region: ${count.region}`);
     const capital = createElement("p", "capital", `Capital: ${count.capital}`);
+    const flag = createElement('img', 'flag', count.flag, 'image of flag')
 
     countryBox.appendChild(countryData);
 
+    countryData.appendChild(flag);
     countryData.appendChild(name);
     countryData.appendChild(population);
     countryData.appendChild(region);
@@ -45,4 +57,3 @@ const renderCountry = async (country) => {
 
 const countries = renderCountry("Mexico");
 
-console.log(countries);
