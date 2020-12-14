@@ -34,12 +34,12 @@ function searchBars() {
       <div id='dropdown-container'>
         <label id='filter-label' for='filter'>Filter By Region:</label>
         <select name='filter' id='filter-dropdown'>
-          <option value=""></option>
-          <option value='Africa'>Africa</option>
-          <option value='Americas'>Americas</option>
-          <option value='Asia'>Asia</option>
-          <option value='Europe'>Europe</option>
-          <option value='Oceania'>Oceania</option>
+          <option id="options" value=""></option>
+          <option id="options" value='Americas'>Americas</option>
+          <option id="options" value='Asia'>Asia</option>
+          <option id="options" value='Africa'>Africa</option>
+          <option id="options" value='Europe'>Europe</option>
+          <option id="options" value='Oceania'>Oceania</option>
         </select>
       </div>
       
@@ -47,15 +47,17 @@ function searchBars() {
   `;
 }
 
+
+
 const createdCountries = (count) => {
   return `
     <div onClick="handleClick(this.id)" id='${count.name}' class='country-box'>
       <div  key=${count.name} id="country-div" class='country-data'>
       <img class='flag' src=${count.flag} />
         <h1 class='country-title'>${count.name}</h1>
-        <p class='population'><b>Population</b> ${count.population}</p>
-        <p class='region'><b>Region</b> ${count.region}</p>
-        <p class='capital'><b>Capital:</b> ${count.capital}</p>
+        <p class="detail-titles"><b>Population</b> ${count.population}</p>
+        <p class="detail-titles"><b>Region</b> ${count.region}</p>
+        <p class="detail-titles"><b>Capital:</b> ${count.capital}</p>
       </div>
     </div>
 `;
@@ -194,19 +196,19 @@ function selectedCountry(count) {
         <h1 class='detail-country-title'>${count.name}</h1>
           <div class='detail-country-data' >
             <div class='left-details'>
-              <p class="detail-native-name" ><b>Native Name</b> ${count.nativeName}</p>
-              <p class='detail-population' ><b>Population</b> ${count.population}</p>
-              <p class='detail-region'><b>Region</b> ${count.region}</p>
-              <p class="detail-sub-region"><b>Sub Region</b> ${count.subregion}</p>
-              <p class='detail-capital'><b>Capital:</b> ${count.capital}</p>
+              <p class="detail-titles" ><b>Native Name</b> <span id='detailed-information'>${count.nativeName}</span></p>
+              <p class="detail-titles" ><b>Population</b> <span id='detailed-information'>${count.population}</span></p>
+              <p class="detail-titles"><b>Region</b> <span id='detailed-information'>${count.region}</span></p>
+              <p class="detail-titles"><b>Sub Region</b> <span id='detailed-information'>${count.subregion}</span></p>
+              <p class="detail-titles"><b>Capital:</b><span id='detailed-information'> ${count.capital}</span></p>
             </div>
             <div class='right-details'>
-              <p class="detail-domain" ><b>Top Level Domain:</b> ${count.topLevelDomain}</p>
-              <p class="detail-currency"><b>Currencies:</b> ${count.currencies[0].name}</p>
-              <p class="detail-languages"><b>Languages:</b> ${count.languages[0].name}</p>
+              <p class="detail-titles" ><b>Top Level Domain:</b> <span id='detailed-information'>${count.topLevelDomain}</span></p>
+              <p class="detail-titles"><b>Currencies:</b> <span id='detailed-information'>${count.currencies[0].name}</span></p>
+              <p class="detail-titles"><b>Languages:</b><span id='detailed-information'> ${count.languages[0].name}</span></p>
             </div>
           </div>
-          <p><b>Border Countries:</b> ${borders}</p>
+          <p><b class="detail-titles">Border Countries:</b> <span class='border-wrapper'>${borders}</span></p>
       </div>
     </div>
   <div>
@@ -233,18 +235,41 @@ function handleClick(count) {
 
 /////////////////////////////////////////Dark Mode///////////////////////////////
 
-const darkModeButton = document.getElementById('darkmode-btn');
-const body = document.getElementsByTagName("body")[0]
-const headerContainer = document.getElementsByClassName('header-container')[0];
+setTimeout(()=>{
+   const darkModeButton = document.getElementById("darkmode-btn");
+  // const body = document.getElementsByTagName("body")[0];
+  // const headerContainer = document.getElementsByClassName(
+  //   "header-container"
+  // )[0];
+  // const searchBar = document.getElementById("search-bar");
+  // const dropDown = document.getElementById("dropdown-container");
+  // console.log(dropDown);
+
+  let darkMode = false;
+  let theme = document.getElementsByTagName("html")[0];
 
 
-darkModeButton.addEventListener('click', handleDarkMode);
+  darkModeButton.addEventListener("click", handleDarkMode);
 
-function handleDarkMode(){
-  body.style.backgroundColor = "hsl(207, 26%, 17%)";
-  headerContainer.style.backgroundColor = "hsl(209, 23%, 22%)";
-  headerContainer.style.boxShadow = "0 0px 4px 1px hsl(209, 23%, 22%)";
-}
+  function handleDarkMode() {
+    // body.style.backgroundColor = "hsl(207, 26%, 17%)";
+    // headerContainer.style.backgroundColor = "hsl(209, 23%, 22%)";
+    // headerContainer.style.boxShadow = "0 0px 4px 1px hsl(209, 23%, 22%)";
+    // searchBar.setAttribute("id", "drk-search-bar");
+    // dropDown.setAttribute("id", "drk-dropdown-container");
+    darkMode = !darkMode;
+    darkMode ? 
+    theme.dataset.theme = "dark": 
+    theme.dataset.theme ="light";
+
+    
+
+
+  }
+}, 300)
+
+
+
 
 /////////////////////////////////////////////////////////////////
 
