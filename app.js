@@ -162,7 +162,7 @@ window.onload = () => {
     dataContainer.appendChild(formSection);
     dataContainer.appendChild(countriesSection);
     renderCountry();
-  }, 500);
+  }, 100);
 };
 
 ////////////New Window Section //////////////
