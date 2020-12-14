@@ -8,8 +8,12 @@ formSection.setAttribute("id", "heading-and-search");
 const countriesSection = document.createElement("section");
 countriesSection.setAttribute("id", "countries-section");
 
+const loading = `<div id="loader">Loading...</div>`
+
+
+dataContainer.innerHTML = loading;
+
 let selectCountry;
-console.log(countriesSection);
 let fetchedDatas;
 
 fetch(api_url)
@@ -24,6 +28,7 @@ const getCountry = async (url) => {
 
   return response;
 };
+
 
 function searchBars() {
   const inputId = "search-bar";
@@ -70,7 +75,8 @@ const countriesDivContainer = (count) => {
 };
 
 const renderCountry = async (country, region) => {
-  const newFetchedData = fetchedDatas.map((count, i) => {
+  
+  const newFetchedData = !fetchedDatas ? console.log('no data yet') : fetchedDatas.map((count, i) => {
     let newCountry = createdCountries(count, i);
     return newCountry;
   });
@@ -78,7 +84,7 @@ const renderCountry = async (country, region) => {
   const newCountryContainerInfuse = countriesDivContainer(
     newFetchedData.join(" ")
   );
-
+console.log(fetchedDatas);
   return (countriesSection.innerHTML += newCountryContainerInfuse);
 };
 
@@ -152,11 +158,12 @@ setTimeout(() => {
 
 formSection.innerHTML += searchBars();
 window.onload = () => {
-  setTimeout(() => {
-    dataContainer.appendChild(formSection);
-    dataContainer.appendChild(countriesSection);
-    renderCountry();
-  }, 100);
+  document.getElementById("loader").remove()
+  setTimeout(()=>{
+  dataContainer.appendChild(formSection);
+  dataContainer.appendChild(countriesSection);
+  renderCountry();
+  }, 500)
 };
 
 ////////////New Window Section //////////////
