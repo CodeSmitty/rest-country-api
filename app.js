@@ -10,7 +10,7 @@ countriesSection.setAttribute("id", "countries-section");
 
 const loading = `<div id="loader">Loading...</div>`;
 
-dataContainer.innerHTML = loading;
+formSection.innerHTML += searchBars();
 
 let selectCountry;
 let fetchedDatas;
@@ -21,7 +21,11 @@ let fetchedDatas;
   .then(() => {
     if(fetchedDatas){
       dataContainer.innerHTML = "";
-      renderCountry()
+      dataContainer.appendChild(formSection);
+      dataContainer.appendChild(countriesSection);
+      renderCountry(fetchedDatas)
+    }else{
+      dataContainer.innerHTML = loading;
     }
   });
 
@@ -80,10 +84,9 @@ const countriesDivContainer = (count) => {
   `;
 };
 
-async function renderCountry (country, region) {
-  const newFetchedData = !fetchedDatas
-    ? console.log("no data yet")
-    : await fetchedDatas.map((count, i) => {
+async function renderCountry (data) {
+  const newFetchedData = 
+     await data.map((count, i) => {
         let newCountry = createdCountries(count, i);
         return newCountry;
       });
@@ -163,11 +166,10 @@ setTimeout(() => {
   }
 }, 500);
 
-formSection.innerHTML += searchBars();
+
 window.onload = () => {
   setTimeout(() => {
-    dataContainer.appendChild(formSection);
-    dataContainer.appendChild(countriesSection);
+    
   }, 100);
 };
 
