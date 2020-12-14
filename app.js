@@ -152,11 +152,11 @@ setTimeout(() => {
 
 formSection.innerHTML += searchBars();
 window.onload = () => {
-  setTimeout(() => {
+  
     dataContainer.appendChild(formSection);
     dataContainer.appendChild(countriesSection);
     renderCountry();
-  }, 100);
+  
 };
 
 ////////////New Window Section //////////////
