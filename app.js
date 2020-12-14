@@ -18,7 +18,12 @@ let fetchedDatas;
  fetch(api_url)
   .then((res) => res.json())
   .then((data) => (fetchedDatas = data))
-  .then(() => {fetchedDatas ? dataContainer.innerHTML = "" : dataContainer.innerHTML = loading});
+  .then(() => {
+    if(fetchedDatas){
+      dataContainer.innerHTML = "";
+      renderCountry()
+    }
+  });
 
 const getCountry = async (url) => {
   const response = await fetch(url)
@@ -75,7 +80,7 @@ const countriesDivContainer = (count) => {
   `;
 };
 
-const renderCountry = async (country, region) => {
+async function renderCountry (country, region) {
   const newFetchedData = !fetchedDatas
     ? console.log("no data yet")
     : await fetchedDatas.map((count, i) => {
@@ -160,11 +165,9 @@ setTimeout(() => {
 
 formSection.innerHTML += searchBars();
 window.onload = () => {
-  document.getElementById("loader").remove();
   setTimeout(() => {
     dataContainer.appendChild(formSection);
     dataContainer.appendChild(countriesSection);
-    renderCountry();
   }, 100);
 };
 
