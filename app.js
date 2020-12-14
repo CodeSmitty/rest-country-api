@@ -47,8 +47,6 @@ function searchBars() {
   `;
 }
 
-
-
 const createdCountries = (count) => {
   return `
     <div onClick="handleClick(this.id)" id='${count.name}' class='country-box'>
@@ -235,8 +233,8 @@ function handleClick(count) {
 
 /////////////////////////////////////////Dark Mode///////////////////////////////
 
-setTimeout(()=>{
-   const darkModeButton = document.getElementById("darkmode-btn");
+setTimeout(() => {
+  const darkModeButton = document.getElementById("darkmode-btn");
   // const body = document.getElementsByTagName("body")[0];
   // const headerContainer = document.getElementsByClassName(
   //   "header-container"
@@ -248,7 +246,6 @@ setTimeout(()=>{
   let darkMode = false;
   let theme = document.getElementsByTagName("html")[0];
 
-
   darkModeButton.addEventListener("click", handleDarkMode);
 
   function handleDarkMode() {
@@ -258,18 +255,9 @@ setTimeout(()=>{
     // searchBar.setAttribute("id", "drk-search-bar");
     // dropDown.setAttribute("id", "drk-dropdown-container");
     darkMode = !darkMode;
-    darkMode ? 
-    theme.dataset.theme = "dark": 
-    theme.dataset.theme ="light";
-
-    
-
-
+    darkMode ? (theme.dataset.theme = "dark") : (theme.dataset.theme = "light");
   }
-}, 300)
-
-
-
+}, 300);
 
 /////////////////////////////////////////////////////////////////
 

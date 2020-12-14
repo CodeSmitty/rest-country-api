@@ -36,7 +36,7 @@ body {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  height:100px;
+  height: 100px;
   box-shadow: var(--boxShadow);
 }
 
@@ -47,7 +47,7 @@ body {
 
 .header-title {
   font-size: 1.2rem;
-  margin:auto;
+  margin: auto;
 }
 
 #darkmode-btn {
@@ -94,9 +94,9 @@ body {
   color: var(--boxShadow);
 }
 
-#filter-label{
-    font-size: 1rem;
-  }
+#filter-label {
+  font-size: 1rem;
+}
 
 #filter-dropdown,
 #options {
@@ -238,7 +238,7 @@ b:after {
 
 .border-countries {
   display: inline-block;
-  margin:5px;
+  margin: 5px;
   padding: 2px 15px;
   font-size: 1rem;
   box-shadow: var(--boxShadow);
@@ -248,48 +248,47 @@ b:after {
   cursor: pointer;
 }
 
-#detailed-information{
+#detailed-information {
   font-weight: 500;
 }
 
-
-@media screen and (max-width:700px){
- 
-  .country-box{
-    max-width:80%;
-    flex:0 0 100%;
-    margin:20px;
+@media screen and (max-width: 700px) {
+  .country-box {
+    max-width: 80%;
+    flex: 0 0 100%;
+    margin: 20px;
   }
 
-  #filter-dropdown{
-    width:40%;
+  #filter-dropdown {
+    width: 40%;
   }
-  #filter-label{
-    font-size: .6rem;
-  }
-
-  .search-and-filter-container{
-    display:flex;
-    flex-flow:row wrap;
+  #filter-label {
+    font-size: 0.6rem;
   }
 
-  #dropdown-container{
-    margin-top:30px;
+  .search-and-filter-container {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  #dropdown-container {
+    margin-top: 30px;
   }
 
   .details-container {
-  width: 100%;
-  max-height: 400px;
-  margin-top: 80px;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  font-family: "Nunito Sans", sans-serif;
-  font-weight: 400;
-}
+    width: 100%;
+    max-height: 400px;
+    margin-top: 80px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: 400;
+  }
 
-.details-wrapper, .detail-img-container{
-  flex:0 0 100%;
-  margin:5px;
-}
+  .details-wrapper,
+  .detail-img-container {
+    flex: 0 0 100%;
+    margin: 5px;
+  }
 }
