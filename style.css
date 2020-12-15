@@ -29,14 +29,14 @@ input::placeholder {
 body {
   background-color: var(--backgroundColor);
   color: var(--textColor);
+  font-family: "Nunito Sans", sans-serif;
 }
 
 .header-container {
-  max-width: 100%;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  height: 100px;
+  padding:20px;
   box-shadow: var(--boxShadow);
 }
 
@@ -46,13 +46,13 @@ body {
 }
 
 .header-title {
+  font-weight:800;
   font-size: 1.2rem;
-  margin: auto;
 }
 
 .darkmode-btn {
   color: var(--textColor);
-  margin: auto 0;
+  text-align:right;
   background: none;
   border: none;
   font-size: 18px;
@@ -72,11 +72,11 @@ body {
 }
 
 .search-and-filter-container {
-  width: 80%;
+  padding:20px;
   margin: auto;
-  padding-bottom: 100px;
   display: flex;
   justify-content: space-between;
+  margin-top:20px;
 }
 
 .sr-only{
@@ -93,10 +93,19 @@ overflow:hidden;
 .search-bar,
 .dropdown-container {
   flex: 0 1 auto;
-  margin-top: 100px;
+  margin-top: 20px;
   border: 0px;
   box-shadow: var(--boxShadow);
   height: 30px;
+  font-size: 1rem;
+}
+
+.search-bar{
+  padding:10px;
+}
+
+label{
+  font-size:13px;
 }
 
 .dropdown-container {
@@ -124,6 +133,7 @@ overflow:hidden;
   box-shadow: var(--boxShadow);
   flex: 1 1 20%;
   margin: 20px;
+  padding:20px;
 }
 
 .country-box:hover {
@@ -137,10 +147,9 @@ overflow:hidden;
 }
 
 .countries-container {
-  width: 80%;
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
+  justify-content: space-between;
   margin: auto;
   top: 20%;
 }
@@ -172,7 +181,6 @@ overflow:hidden;
 
 .previous-btn {
   padding: 10px 40px;
-  font-family: "Nunito Sans", sans-serif;
   font-weight: 600;
   background: transparent;
   border: none;
@@ -265,7 +273,8 @@ b:after {
   .country-box {
     max-width: 80%;
     flex: 0 0 100%;
-    margin: 20px;
+    margin: 20px auto;
+    padding:20px;
   }
 
   .filter-dropdown {
@@ -291,7 +300,6 @@ b:after {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    font-family: "Nunito Sans", sans-serif;
     font-weight: 400;
   }
 
