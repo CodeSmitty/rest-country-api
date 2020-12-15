@@ -1,14 +1,14 @@
 let dataContainer = document.getElementById("data-container");
 const api_url = "https://restcountries.eu/rest/v2/all";
 
-const headerAndSearch = document.getElementById("heading-and-search");
+
 const root = document.getElementById("root");
 const formSection = document.createElement("section");
-formSection.setAttribute("id", "heading-and-search");
+formSection.setAttribute("class", "heading-and-search");
 const countriesSection = document.createElement("section");
-countriesSection.setAttribute("id", "countries-section");
+countriesSection.setAttribute("class", "countries-section");
 
-const loading = `<div id="loader">Loading...</div>`;
+const loading = `<div class="loader">Loading...</div>`;
 
 formSection.innerHTML += searchBars();
 
@@ -46,11 +46,11 @@ function searchBars() {
     <div class='search-and-filter-container'>
     <div>
       <label for=${inputId} class='sr-only'>Search Country Input</label>
-      <input id=${inputId} type='text' name="search-input" placeholder="Search for a country" />
+      <input class=${inputId} type='text' name="search-input" placeholder="Search for a country" />
     </div>
-      <div id='dropdown-container'>
-        <label id='filter-label' for='filter'>Filter By Region:</label>
-        <select name='filter' title="dropdown" id='filter-dropdown'>
+      <div class='dropdown-container'>
+        <label class='filter-label' for='filter'>Filter By Region:</label>
+        <select name='filter' title="dropdown" class='filter-dropdown'>
           <option class="options" value=""></option>
           <option class="options" value='Americas'>Americas</option>
           <option class="options" value='Asia'>Asia</option>
@@ -80,7 +80,7 @@ const createdCountries = (count) => {
 
 const countriesDivContainer = (count) => {
   return `
-    <div id="countries-container">
+    <div class="countries-container">
   ${count}
     </div>
   `;
@@ -107,7 +107,7 @@ const filterCountries = (typedData, fetchedData) => {
 };
 
 setTimeout(() => {
-  const search_bar = document.getElementById("search-bar");
+  const search_bar = document.getElementsByClassName("search-bar")[0];
   const dropDown = document.querySelector("select");
 
   if (search_bar) {
@@ -200,26 +200,26 @@ function selectedCountry(count) {
   return `
   <div class="details-section">
     <div class='btn-div'>
-      <button class='previous-btn' onclick="previousScreen()"><span id='left-arrow'>&#x2190;</span> Back</buttton>
+      <button class='previous-btn' onclick="previousScreen()"><span class='left-arrow'>&#x2190;</span> Back</buttton>
     </div>
     <div  class='details-container'>
       <div class='detail-img-container'>
-        <img class='flag' id='flag'src=${count.flag} />
+        <img class='flag' src=${count.flag} />
       </div>
       <div class='details-wrapper'  >
         <h1 class='detail-country-title'>${count.name}</h1>
           <div class='detail-country-data' >
             <div class='left-details'>
-              <p class="detail-titles" ><b>Native Name</b> <span id='detailed-information'>${count.nativeName}</span></p>
-              <p class="detail-titles" ><b>Population</b> <span id='detailed-information'>${count.population}</span></p>
-              <p class="detail-titles"><b>Region</b> <span id='detailed-information'>${count.region}</span></p>
-              <p class="detail-titles"><b>Sub Region</b> <span id='detailed-information'>${count.subregion}</span></p>
-              <p class="detail-titles"><b>Capital:</b><span id='detailed-information'> ${count.capital}</span></p>
+              <p class="detail-titles" ><b>Native Name</b> <span class='detailed-information'>${count.nativeName}</span></p>
+              <p class="detail-titles" ><b>Population</b> <span class='detailed-information'>${count.population}</span></p>
+              <p class="detail-titles"><b>Region</b> <span class='detailed-information'>${count.region}</span></p>
+              <p class="detail-titles"><b>Sub Region</b> <span class='detailed-information'>${count.subregion}</span></p>
+              <p class="detail-titles"><b>Capital:</b><span class='detailed-information'> ${count.capital}</span></p>
             </div>
             <div class='right-details'>
-              <p class="detail-titles" ><b>Top Level Domain:</b> <span id='detailed-information'>${count.topLevelDomain}</span></p>
-              <p class="detail-titles"><b>Currencies:</b> <span id='detailed-information'>${count.currencies[0].name}</span></p>
-              <p class="detail-titles"><b>Languages:</b><span id='detailed-information'> ${count.languages[0].name}</span></p>
+              <p class="detail-titles" ><b>Top Level Domain:</b> <span class='detailed-information'>${count.topLevelDomain}</span></p>
+              <p class="detail-titles"><b>Currencies:</b> <span class='detailed-information'>${count.currencies[0].name}</span></p>
+              <p class="detail-titles"><b>Languages:</b><span class='detailed-information'> ${count.languages[0].name}</span></p>
             </div>
           </div>
           <p><b class="detail-titles">Border Countries:</b> <span class='border-wrapper'>${borders}</span></p>
@@ -250,14 +250,7 @@ function handleClick(count) {
 /////////////////////////////////////////Dark Mode///////////////////////////////
 
 setTimeout(() => {
-  const darkModeButton = document.getElementById("darkmode-btn");
-  // const body = document.getElementsByTagName("body")[0];
-  // const headerContainer = document.getElementsByClassName(
-  //   "header-container"
-  // )[0];
-  // const searchBar = document.getElementById("search-bar");
-  // const dropDown = document.getElementById("dropdown-container");
-  // console.log(dropDown);
+  const darkModeButton = document.getElementsByClassName("darkmode-btn")[0];
 
   let darkMode = false;
   let theme = document.getElementsByTagName("html")[0];
@@ -265,11 +258,6 @@ setTimeout(() => {
   darkModeButton.addEventListener("click", handleDarkMode);
 
   function handleDarkMode() {
-    // body.style.backgroundColor = "hsl(207, 26%, 17%)";
-    // headerContainer.style.backgroundColor = "hsl(209, 23%, 22%)";
-    // headerContainer.style.boxShadow = "0 0px 4px 1px hsl(209, 23%, 22%)";
-    // searchBar.setAttribute("id", "drk-search-bar");
-    // dropDown.setAttribute("id", "drk-dropdown-container");
     darkMode = !darkMode;
     darkMode ? (theme.dataset.theme = "dark") : (theme.dataset.theme = "light");
   }

@@ -41,7 +41,7 @@ body {
 }
 
 .header-title,
-#darkmode-btn {
+.darkmode-btn {
   flex: 0 1 40%;
 }
 
@@ -50,7 +50,7 @@ body {
   margin: auto;
 }
 
-#darkmode-btn {
+.darkmode-btn {
   color: var(--textColor);
   margin: auto 0;
   background: none;
@@ -58,16 +58,16 @@ body {
   font-size: 18px;
 }
 
-#moon {
+.moon {
   padding: 0 10px;
   font-size: 20px;
 }
 
-#darkmode-btn:hover {
+.darkmode-btn:hover {
   cursor: pointer;
 }
 
-#darkmode-btn:focus {
+.darkmode-btn:focus {
   outline: none;
 }
 
@@ -90,8 +90,8 @@ overflow:hidden;
 
 }
 
-#search-bar,
-#dropdown-container {
+.search-bar,
+.dropdown-container {
   flex: 0 1 auto;
   margin-top: 100px;
   border: 0px;
@@ -99,23 +99,22 @@ overflow:hidden;
   height: 30px;
 }
 
-#dropdown-container {
+.dropdown-container {
   display: flex;
   justify-content: space-between;
   color: var(--boxShadow);
 }
 
-#filter-label {
-  font-size: 1rem;
-}
 
-#filter-dropdown,
+
+.filter-dropdown,
 .options {
   color: var(--boxShadow);
   background-color: var(--backgroundColor);
 }
 
-#filter-label {
+.filter-label {
+  font-size:14px;
   padding: 5px;
   margin: auto;
 }
@@ -137,7 +136,7 @@ overflow:hidden;
   font-size: 1.1rem;
 }
 
-#countries-container {
+.countries-container {
   width: 80%;
   display: flex;
   flex-flow: row wrap;
@@ -149,6 +148,8 @@ overflow:hidden;
 .flag {
   width: 100%;
   max-width: 100%;
+   object-fit: cover;
+  height: 100%;
 }
 
 .country-title {
@@ -189,10 +190,10 @@ b:after {
   content: space;
 }
 
-#left-arrow {
+.left-arrow {
   font-size: 1.5rem;
 }
-#left-arrow:after {
+.left-arrow:after {
   content: " ";
 }
 
@@ -221,10 +222,7 @@ b:after {
   font-size: 1rem;
 }
 
-#flag {
-  object-fit: cover;
-  height: 100%;
-}
+
 
 .details-wrapper,
 .detail-img-container {
@@ -259,7 +257,7 @@ b:after {
   cursor: pointer;
 }
 
-#detailed-information {
+.detailed-information {
   font-weight: 500;
 }
 
@@ -270,10 +268,10 @@ b:after {
     margin: 20px;
   }
 
-  #filter-dropdown {
+  .filter-dropdown {
     width: 40%;
   }
-  #filter-label {
+  .filter-label {
     font-size: 0.6rem;
   }
 
@@ -282,7 +280,7 @@ b:after {
     flex-flow: row wrap;
   }
 
-  #dropdown-container {
+  .dropdown-container {
     margin-top: 30px;
   }
 
