@@ -44,17 +44,19 @@ function searchBars() {
   const inputId = "search-bar";
   return `
     <div class='search-and-filter-container'>
-      <input id=${inputId} type='text' placeholder="Search for a country" />
-
+    <div>
+      <label for=${inputId} class='sr-only'>Search Country Input</label>
+      <input id=${inputId} type='text' name="search-input" placeholder="Search for a country" />
+    </div>
       <div id='dropdown-container'>
         <label id='filter-label' for='filter'>Filter By Region:</label>
-        <select name='filter' id='filter-dropdown'>
-          <option id="options" value=""></option>
-          <option id="options" value='Americas'>Americas</option>
-          <option id="options" value='Asia'>Asia</option>
-          <option id="options" value='Africa'>Africa</option>
-          <option id="options" value='Europe'>Europe</option>
-          <option id="options" value='Oceania'>Oceania</option>
+        <select name='filter' title="dropdown" id='filter-dropdown'>
+          <option class="options" value=""></option>
+          <option class="options" value='Americas'>Americas</option>
+          <option class="options" value='Asia'>Asia</option>
+          <option class="options" value='Africa'>Africa</option>
+          <option class="options" value='Europe'>Europe</option>
+          <option class="options" value='Oceania'>Oceania</option>
         </select>
       </div>
       
@@ -65,9 +67,9 @@ function searchBars() {
 const createdCountries = (count) => {
   return `
     <div onClick="handleClick(this.id)" id='${count.name}' class='country-box'>
-      <div  key=${count.name} id="country-div" class='country-data'>
-      <img class='flag' src=${count.flag} />
-        <h1 class='country-title'>${count.name}</h1>
+      <div  key=${count.name} class='country-data country-div'>
+      <img class='flag' src=${count.flag} alt="${count.name} flag"/>
+        <h2 class='country-title'>${count.name}</h2>
         <p class="detail-titles"><b>Population</b> ${count.population}</p>
         <p class="detail-titles"><b>Region</b> ${count.region}</p>
         <p class="detail-titles"><b>Capital:</b> ${count.capital}</p>
