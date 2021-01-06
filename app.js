@@ -51,7 +51,7 @@ function searchBars() {
       <div class='dropdown-container'>
         <label class='filter-label' for='filter'>Filter By Region:</label>
         <select name='filter' title="dropdown" class='filter-dropdown'>
-          <option class="options" value=""></option>
+          <option class="options" value="__blank"></option>
           <option class="options" value='Americas'>Americas</option>
           <option class="options" value='Asia'>Asia</option>
           <option class="options" value='Africa'>Africa</option>
@@ -65,9 +65,12 @@ function searchBars() {
 }
 
 const createdCountries = (count) => {
+  let stringCountry = count.name.toString().replace(/\s+/g, "");
+
+  console.log(stringCountry);
   return `
-    <div onClick="handleClick(this.id)" id='${count.name}' class='country-box'>
-      <div  key=${count.name} class='country-data country-div'>
+    <div onClick="handleClick(this.id)" id='${stringCountry}' class='country-box'>
+      <div class='country-data country-div'>
       <img class='flag' src=${count.flag} alt="${count.name} flag"/>
         <h2 class='country-title'>${count.name}</h2>
         <p class="detail-titles"><b>Population</b> ${count.population}</p>
@@ -88,7 +91,7 @@ const countriesDivContainer = (count) => {
 
 async function renderCountry (data) {
   const newFetchedData = 
-     await data.map((count, i) => {
+     await data?.map((count, i) => {
         let newCountry = createdCountries(count, i);
         return newCountry;
       });
@@ -238,7 +241,9 @@ function previousScreen() {
   }, 100);
 }
 
-function handleClick(count) {
+function handleClick(givenCountry) {
+  let count = givenCountry.replace(/\s+/g, " ");
+
   const newFetchedData = fetchedDatas.find((country, i) => {
     return country.name === count ? country : null;
   });
